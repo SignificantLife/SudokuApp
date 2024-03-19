@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <key name="game_levels">50</key>
+    <key name="effective_levels">10</key>
+    <key name="game_time_minute">10</key>
+</config>

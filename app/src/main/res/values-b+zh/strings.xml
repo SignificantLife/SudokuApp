@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">星空数独</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="title_activity_level_selection">LevelSelectionActivity</string>
+    <string name="title_activity_game_rules">GameRulesActivity</string>
+    <string name="title_activity_game_play">GamePlayActivity</string>
+    <string name="game_rules_title">玩法说明</string>
+    <string name="game_rules_text_1">数独是一种宫格填字游戏。</string>
+    <string name="game_rules_text_2">数独宫格可以被拆分为9行、9列和9个小方块。</string>
+    <string name="game_rules_text_3">每一行、列和小方块必须包含无重复的数字1至9。</string>
+    <string name="game_rules_text_4">当所有的行、列和小方块被正确填满，数独完成！</string>
+    <string name="guide_text_1">欢迎！\n要解开一个数独谜题，\n请在游戏盘上填满数字。</string>
+    <string name="guide_text_2">一个数字只能出现在每行、每列\n和每个小方块中一次</string>
+    <string name="guide_text_3">要输入一个数字，\n请首先点按一个空格。</string>
+    <string name="guide_text_4">再点按要输入的数字。</string>
+    <string name="guide_text_5">注意时间限制！</string>
+    <string name="guide_text_6">这就是星空数独的基本规则。\n祝您好运！</string>
+    <string name="guide_press_text">点击任意位置继续</string>
+    <string name="game_won_txt">你赢了！</string>
+    <string name="game_lost_txt">你输了！</string>
+    <string name="game_won_btn_txt">下一关</string>
+    <string name="game_lost_btn_txt">重新开始</string>
+    <string name="game_start_btn_txt">开始玩</string>
+    <string name="level_text_prefix">星星 -&#160;</string>
+    <string name="row_text">行</string>
+    <string name="col_text">列</string>
+    <string name="grid_text">小方块</string>
+    <string name="correct_row_text">正确的行</string>
+    <string name="correct_col_text">正确的列</string>
+    <string name="correct_grid_text">正确的小方块</string>
+    <string name="sudoku_done_text">数独完成</string>
+    <string name="setting_dialog_title">设置</string>
+    <string name="pause_dialog_title">已暂停</string>
+    <string name="restart_text">重新开始</string>
+    <string name="sky_text">星空</string>
+    <string name="level_top_text_1">更多关卡</string>
+    <string name="level_top_text_2">敬请期待…</string>
+    <string name="language_receiver">星空数独已切换至简体中文</string>
+</resources>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.SudokuApp" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="colorControlNormal">#FFFFFF</item>
+    </style>
+
+    <style name="SudokuTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:statusBarColor">@android:color/black</item>
+    </style>
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight">
+        <item name="actionBarTheme">@style/AppTheme.ActionBarTheme</item>
+        <item name="android:statusBarColor">@android:color/black</item>
+    </style>
+
+    <style name="AppTheme.ActionBarTheme" parent="@style/AppTheme">
+        <item name="colorControlNormal">@color/white</item>
+    </style>
+
+    <style name="DialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/dialog_up</item>
+        <item name="android:windowExitAnimation">@anim/dialog_down</item>
+    </style>
+
+
+    <style name="ShapeAppearanceOverlay.CardView" parent="">
+        <item name="cornerFamilyBottomLeft">rounded</item>
+        <item name="cornerFamilyBottomRight">rounded</item>
+        <item name="cornerSizeBottomLeft">30%</item>
+        <item name="cornerSizeBottomRight">30%</item>
+    </style>
+
+</resources>

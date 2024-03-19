@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/smallLeft"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <ImageView
+        android:id="@+id/line"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_map_line_right_off"
+        app:layout_constraintCircleAngle="45"
+        app:layout_constraintCircleRadius="60dp"
+        app:layout_constraintCircle="@id/levelView"
+        tools:ignore="MissingConstraints"
+        android:tag="right" />
+
+    <TextView
+        android:id="@+id/level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guideline"
+        app:layout_constraintBottom_toTopOf="@id/levelView"/>
+
+    <ImageView
+        android:id="@+id/lightBg"
+        android:layout_width="68dp"
+        android:layout_height="68dp"
+        android:tag="light"
+        android:src="@drawable/ic_map_star_small_light"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guideline"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <ImageView
+        android:id="@+id/levelView"
+        android:layout_width="66dp"
+        android:layout_height="66dp"
+        android:tag="small"
+        android:src="@drawable/ic_map_star_small_off"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guideline"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
