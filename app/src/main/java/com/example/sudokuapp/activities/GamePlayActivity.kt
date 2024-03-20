@@ -258,5 +258,10 @@ class GamePlayActivity : BaseActivity(), PauseDialogFragment.DialogListener, Gam
             }
         }
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mHandler.removeCallbacks(mRunnable)
+    }
 }
 

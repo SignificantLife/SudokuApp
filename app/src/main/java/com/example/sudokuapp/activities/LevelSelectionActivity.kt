@@ -103,8 +103,6 @@ class LevelSelectionActivity : BaseActivity(), GameLevelAdapter.ClickListener, G
             }
         }
         onBackPressedDispatcher.addCallback(this, callback)
-
-
     }
 
     private fun initGameLevel(){
@@ -185,10 +183,8 @@ class LevelSelectionActivity : BaseActivity(), GameLevelAdapter.ClickListener, G
         val nightSkyAnimation: Animation = AnimationUtils.loadAnimation(binding.starView.context, R.anim.night_sky_flash)
         binding.starView.startAnimation(nightSkyAnimation)
 
-
         mBigMeteorHandler.postDelayed(runnable, mBigMeteorDelay)
     }
-
 
 
     private fun playSmallMeteorAnimation(){
@@ -232,10 +228,8 @@ class LevelSelectionActivity : BaseActivity(), GameLevelAdapter.ClickListener, G
                 binding.smallMeteorView.visibility=View.INVISIBLE
             }
         })
-
         return animatorSet
     }
-
 
     private fun playBigMeteorAnimation() {
         val bigMeteor = binding.bigMeteorView
