@@ -5,15 +5,11 @@ import android.animation.AnimatorListenerAdapter
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
-import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
 import android.view.View
-import android.view.WindowInsets
-import android.view.WindowInsetsController
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.activity.OnBackPressedCallback
@@ -114,7 +110,7 @@ class LevelSelectionActivity : BaseActivity(), GameLevelAdapter.ClickListener, G
     private fun initGameLevel(){
 
         /* Add Bottom Space */
-        var bottom =LevelItemLayout(GameLevel.BOTTOM_SPACE)
+        val bottom =LevelItemLayout(GameLevel.BOTTOM_SPACE)
         mLevelList.add(bottom)
 
         /* Add Level Item */
@@ -133,7 +129,7 @@ class LevelSelectionActivity : BaseActivity(), GameLevelAdapter.ClickListener, G
         }
 
         /* Add Top Text - The Last Item */
-        var top = LevelItemLayout(GameLevel.TOP_TEXT)
+        val top = LevelItemLayout(GameLevel.TOP_TEXT)
         mLevelList.add(top)
 
     }

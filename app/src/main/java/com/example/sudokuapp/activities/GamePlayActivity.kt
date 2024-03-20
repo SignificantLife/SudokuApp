@@ -5,10 +5,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
 import android.view.View
-import android.view.WindowInsets
-import android.view.WindowInsetsController
 import androidx.activity.OnBackPressedCallback
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
@@ -19,7 +16,6 @@ import com.example.sudokuapp.data.SoundType
 import com.example.sudokuapp.databinding.ActivityGamePlayBinding
 import com.example.sudokuapp.fragments.GameDialogFragment
 import com.example.sudokuapp.fragments.PauseDialogFragment
-import com.example.sudokuapp.utils.ActivityCollector
 import com.example.sudokuapp.utils.ConfigUtils
 import com.example.sudokuapp.utils.SharedPreferencesManager
 import com.example.sudokuapp.utils.SoundManager
@@ -125,7 +121,7 @@ class GamePlayActivity : BaseActivity(), PauseDialogFragment.DialogListener, Gam
 
 
     private fun setTimer() {
-        val totalTime = mGameTime*60000
+        val totalTime = mGameTime * 60000
         binding.progressbar.max = totalTime / 1000
         binding.progressbar.progress = binding.progressbar.max
         mTimeLeftInMillis = totalTime.toLong()
