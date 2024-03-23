@@ -23,9 +23,10 @@ class BoardDatabaseHelper(val context: Context): SQLiteOpenHelper(context, DB_NA
     private var DB_PATH: String = context.getDatabasePath(DB_NAME).path
 
     init {
-        if (!isDatabaseExists()) {
-            copyDatabaseFromAssets(context)
-        }
+        super.getReadableDatabase()
+//        if (!isDatabaseExists()) {
+//            copyDatabaseFromAssets(context)
+//        }
     }
 
     private fun isDatabaseExists(): Boolean {

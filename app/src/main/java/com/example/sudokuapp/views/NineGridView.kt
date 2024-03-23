@@ -99,6 +99,7 @@ class NineGridView(context: Context, attrs: AttributeSet?) : View(context, attrs
 
     private var mMarkRecords: ConcurrentHashMap<Pair<Int, Int>, MutableSet<Int>> =
         ConcurrentHashMap()
+
     private var mOperationRecords: Stack<SudokuOperation> = Stack()
 
     private var mRowArray = Array(9) { BooleanArray(9) }
@@ -120,6 +121,8 @@ class NineGridView(context: Context, attrs: AttributeSet?) : View(context, attrs
     /* Wrong Answer Animation */
     private val mWrongAnsDelayTime = 500L
     private var mJob: Job? = null
+
+    private var mClickEnable = true
 
 
     companion object {
@@ -166,6 +169,8 @@ class NineGridView(context: Context, attrs: AttributeSet?) : View(context, attrs
             nineGridView.mSecondRowBottom = 0f
 
             nineGridView.mJob = null
+
+            nineGridView.mClickEnable = true
 
              runBlocking {
                 try {
@@ -298,8 +303,9 @@ class NineGridView(context: Context, attrs: AttributeSet?) : View(context, attrs
                 mClickX = (event.x - mHorizontalOffset)
                 mClickY = (event.y - mVerticalOffset)
 
-
-                if (mClickX < 0 || mClickY < 0) {
+                if(!mClickEnable){
+                    return false
+                } else if (mClickX < 0 || mClickY < 0) {
                     return false
                 } else if ( mClickY < 9 * mCellSize ) {
                     /* Sound Effect */
@@ -362,12 +368,10 @@ class NineGridView(context: Context, attrs: AttributeSet?) : View(context, attrs
                         if(isRevokeEnable()){
                             SoundManager.playSound(SoundType.BUTTON_TAP)
                         }
-
                         mModeNow = GameMode.REVOKE
                         revokeOperation()
                         invalidate()
                     }
-
                     return true
                 }
             }
@@ -411,7 +415,6 @@ class NineGridView(context: Context, attrs: AttributeSet?) : View(context, attrs
 
             when {
                 mKeyboardPressedNumber != -1 -> {
-
                     if (mMarkRecords.containsKey(key)) {
                         val set = mMarkRecords[key]
                         if (set != null) {
@@ -574,7 +577,9 @@ class NineGridView(context: Context, attrs: AttributeSet?) : View(context, attrs
 
         /* Game won Event */
         if(!isWrong && isWon()){
+            mClickEnable = false
             mListener?.onIsWon(true)
+
         }
 
     }
@@ -1031,7 +1036,7 @@ class NineGridView(context: Context, attrs: AttributeSet?) : View(context, attrs
         val value = poppedElement.value
         val key = Pair(row,col)
 
-        when(type) {
+        when (type) {
             OperationType.FILL_NUMBER -> {
                 mBoardData?.get(row)?.set(col, 0)
                 updateBitmask(row, col, value, true)
@@ -1047,6 +1052,9 @@ class NineGridView(context: Context, attrs: AttributeSet?) : View(context, attrs
                 mMarkRecords[key]?.add(value)
             }
         }
+
+        mClickedRow = row
+        mClickedColumn = col
 
     }
 

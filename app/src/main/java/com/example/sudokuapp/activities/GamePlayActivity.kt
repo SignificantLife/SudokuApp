@@ -79,17 +79,28 @@ class GamePlayActivity : BaseActivity(), PauseDialogFragment.DialogListener, Gam
         val gameDialogFragment = GameDialogFragment(null,null,null)
         gameDialogFragment.setDialogListener(this)
 
+
+        if (mLevel == 1){
+            binding.guideLayout.visibility = View.VISIBLE
+        }
+        else
+        {
+            setTimer()
+        }
+
         binding.guideLayout.setOnClickListener {
             SoundManager.playSound(SoundType.BUTTON_TAP)
-            if(mGuideImg.isEmpty() || mGuideImg.isEmpty()){
-                binding.guideLayout.visibility= View.GONE
+            if (mGuideImg.isEmpty() || mGuideImg.isEmpty())
+            {
+                binding.guideLayout.visibility = View.GONE
                 setTimer()
             }
-            else {
+            else
+            {
+                binding.guideLayout.visibility = View.VISIBLE
                 guidePlay()
             }
         }
-
 
         /* Open Pause DialogFragment */
         binding.pauseImg.setOnClickListener {
@@ -97,17 +108,13 @@ class GamePlayActivity : BaseActivity(), PauseDialogFragment.DialogListener, Gam
             pauseEvent()
         }
 
-
         /* Return Back - Invalid */
-        val callback = object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                /* do nothing */
-            }
-        }
-        onBackPressedDispatcher.addCallback(this, callback)
-
-
-
+//        val callback = object : OnBackPressedCallback(true) {
+//            override fun handleOnBackPressed() {
+//                /* do nothing */
+//            }
+//        }
+//        onBackPressedDispatcher.addCallback(this, callback)
     }
 
 
@@ -206,7 +213,6 @@ class GamePlayActivity : BaseActivity(), PauseDialogFragment.DialogListener, Gam
 
     override fun onIsWon(data: Boolean) {
         if(data) {
-
             pauseTimer()
             mPauseTimer = true
 
